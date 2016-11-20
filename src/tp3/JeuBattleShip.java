@@ -7,6 +7,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
+import javax.swing.table.TableCellRenderer;
 
 /**
  * @author mensur
@@ -53,7 +56,7 @@ public class JeuBattleShip {
 				{ "10", "", "", "", "", "", "", "", "", "", ""}, 
 			};
 		
-		JTable jTableAdvesaire = new JTable(data, columnNames);
+		final JTable jTableAdvesaire = new JTable(data, columnNames);
 		JScrollPane tableContainer = new JScrollPane(jTableAdvesaire);
 		jPanelTable.add(tableContainer, BorderLayout.CENTER);
 		jFrame.getContentPane().add(jPanelTable);
@@ -115,6 +118,22 @@ public class JeuBattleShip {
 
 		jFrame.setVisible(true);
 		
+		jTableAdvesaire.addMouseListener(new MouseAdapter() {
+			  public void mouseClicked(MouseEvent e) {
+			    if (e.getClickCount() == 1) {
+			      JTable target = (JTable)e.getSource();
+			      int row = target.getSelectedRow() + 1;
+			      int column = target.getSelectedColumn();
+			      String s = (String) jTableAdvesaire.getColumnModel().getColumn(column).getHeaderValue();
+			     
+			      //afficher la position
+			      System.out.println("La position est : " + s + " " + row );
+			    }
+			  }
+			});
+
+		
 	}
+	
 
 }
