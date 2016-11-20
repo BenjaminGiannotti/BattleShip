@@ -3,8 +3,6 @@
  */
 package tp3;
 
-import javax.swing.text.Position;
-
 /**
  * @author mensur
  *
