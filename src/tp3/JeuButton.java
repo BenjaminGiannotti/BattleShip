@@ -12,14 +12,17 @@ import javax.swing.JButton;
  *
  */
 public class JeuButton extends JButton{
-	
-	public JButton jeuButton(String nom, String text, int x, int y, int largeur, int hauteur){
+
+	public JButton jeuButton(String nom, String text){
 		JButton j = new JButton();
 		j.setName(nom);
 		j.setText(text);
-		j.setBounds(x, y, largeur, hauteur);
 		//j.setVisible(true);
 		return j;
+	}
+	
+	public int nbCaseNavire(int number) {
+		return number;
 	}
 
 }
