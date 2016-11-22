@@ -12,6 +12,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -174,7 +176,7 @@ public class JeuBattleShip extends JFrame {
 
 	public JPanel buildButtonsPanel() {
 		JPanel panel = new JPanel();
-		panel.setLayout(new GridLayout(20, 3));
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
 		panel.add(buildButtonNavireAction("btnPA", "Placer P-A", 5));
 		panel.add(buildButtonNavireAction("btnCroiseur", "Placer Croiseur", 4));
@@ -235,8 +237,7 @@ public class JeuBattleShip extends JFrame {
 	}
 
 	private JButton buildButtonNavireAction(String nom, String text, int nbCase) {
-		JButton button = new JButton(text);
-		button.setName(nom);
+		JeuButton button = new JeuButton(nom, text, nbCase);
 		button.putClientProperty(BUTTON_NAVIRE, nbCase);
 		button.addActionListener(navireListner);
 		return button;
@@ -246,7 +247,7 @@ public class JeuBattleShip extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			JComponent source = (JComponent) e.getSource();
 			Integer code = (Integer) source.getClientProperty(BUTTON_NAVIRE);
-
+			
 			operatorButtonPressed(code);
 		}
 	};

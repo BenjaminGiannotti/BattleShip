@@ -10,5 +10,13 @@ package tp3;
  * @author Benjamin
  */
 public abstract class AJoueur implements IJoueur{    
+	//public void tire(IJoueur cible);
+	
+	//public void recoitTire(Position position);
+	
+	//(placeNavire(Navire navire))
+	
+	//algorithme normal
+	
 	
 }

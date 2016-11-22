@@ -10,9 +10,7 @@ package tp3;
 public class Maillon {
 
     //ATTRIBUTS
-	private String lettre;
-    private int chiffre;
-    private boolean toucher;
+	private Position unePosition;
     private Maillon next;
 
     /**
@@ -20,42 +18,19 @@ public class Maillon {
      *
      * @param valeur
      */
-    public Maillon(String lettre, int chiffre, boolean toucher) {
-    	this.lettre = lettre;
-    	this.chiffre = chiffre;
-    	this.toucher = toucher;
+    public Maillon(Position p) {
+    	unePosition.setChiffre(p.getChiffre());
+    	unePosition.setLettre(p.getLettre());
+    	unePosition.setToucher(p.isToucher());
     }
-
-   
-    public boolean isToucher() {
-		return toucher;
+    
+	public Position getUnePosition() {
+		return unePosition;
 	}
 
-
-	public void setViser(boolean toucher) {
-		this.toucher = toucher;
+	public void setUnePosition(Position unePosition) {
+		this.unePosition = unePosition;
 	}
-
-
-	public String getLettre() {
-		return lettre;
-	}
-
-
-	public void setLettre(String lettre) {
-		this.lettre = lettre;
-	}
-
-
-	public int getChiffre() {
-		return chiffre;
-	}
-
-
-	public void setChiffre(int chiffre) {
-		this.chiffre = chiffre;
-	}
-
 
 	/**
      *

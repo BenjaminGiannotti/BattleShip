@@ -10,19 +10,35 @@ package tp3;
  * @author Benjamin
  */
 public class Navire {
-	
+
 	String nomDuNavire;
 	int nbCaseNavire;
 	ListeDynamique listePosition = new ListeDynamique();
-	
-   public void ajouterNavire(String nomDuNavire, int nbCaseNavire, String lettre, int chiffre ){
-	   this.nomDuNavire = nomDuNavire;
-	   this.nbCaseNavire = nbCaseNavire;
-	   listePosition.add(lettre, chiffre, false);
-   }
-	
-    public boolean estCoulé(){
-    	//Si toute les case du navire sont toucher, return true
-    	return true;
-    }
+
+	public void ajouterNavire(String nomDuNavire, int nbCaseNavire, Position position) {
+		this.nomDuNavire = nomDuNavire;
+		this.nbCaseNavire = nbCaseNavire;
+		listePosition.add(position);
+	}
+
+	public boolean estCoulé() {
+		try {
+			if(!listePosition.estVide()){
+				// Si toute les case du navire sont toucher, return true
+				for (int i = 0; i < listePosition.getSize(); i++) {
+					if (listePosition.get(i).getUnePosition().isToucher() == false) {
+						return false;
+					}
+				}
+			}else{
+				System.out.println("La liste est vide");
+				return false;
+			}
+		} catch (Exception e) {
+			System.out.println("Il y a eu une erreur dans la methode estCoule(),"
+					+ " il se peut que votre pile est vide");
+			e.printStackTrace();
+		}
+		return true;
+	}
 }

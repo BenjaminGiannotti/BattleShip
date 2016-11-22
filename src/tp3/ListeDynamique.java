@@ -81,7 +81,7 @@ public class ListeDynamique {
 	 * Ajoute un element
 	 * @param value
 	 */
-	public void add(String lettre, int chiffre, boolean toucher) {
+	public void add(Position position) {
 		
 		/**
 		 * Strat�gie: On d�roule jusqu'� la fin de la liste puis 
@@ -89,7 +89,7 @@ public class ListeDynamique {
 		 */
 		
 		if (this.estVide()) {
-			this.head = new Maillon(lettre, chiffre, toucher);
+			this.head = new Maillon(position);
 			this.size++;
 
 		} else {
@@ -98,7 +98,7 @@ public class ListeDynamique {
 			while (tmp.getNext() != null) {
 				tmp = tmp.getNext();
 			}
-			tmp.setNext(new Maillon(lettre, chiffre, toucher));
+			tmp.setNext(new Maillon(position));
 			this.size++;
 
 		}
@@ -121,14 +121,20 @@ public class ListeDynamique {
 		Maillon tmp = this.head;
 
 		while (tmp.getNext() != null) {
-			string += "Lettre : " + tmp.getLettre() + " Chiffre : " + tmp.getChiffre() + " Toucher : " + tmp.isToucher() +  ";";
+			string += tmp.toString();
 			tmp = tmp.getNext();
 		}
 
-		string +=  "Lettre : " + tmp.getLettre() + " Chiffre : " + tmp.getChiffre() + " Toucher : " + tmp.isToucher() + ";";
+		string +=  tmp.toString();
 
 		return string;
 
 	}
+
+	public int getSize() {
+		return size;
+	}
+	
+	
 
 }
