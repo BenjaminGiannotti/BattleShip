@@ -19,9 +19,7 @@ public class Maillon {
      * @param valeur
      */
     public Maillon(Position p) {
-    	unePosition.setChiffre(p.getChiffre());
-    	unePosition.setLettre(p.getLettre());
-    	unePosition.setToucher(p.isToucher());
+    	this.unePosition = p;
     }
     
 	public Position getUnePosition() {
@@ -46,6 +44,10 @@ public class Maillon {
      */
     public void setNext(Maillon next) {
         this.next = next;
+    }
+    
+    public String toString(){
+    	return unePosition.toString();
     }
 
 }

@@ -4,7 +4,9 @@
 package tp3;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 
 /**
@@ -21,8 +23,4 @@ public class JeuButton extends JButton{
 		this.nbCase = nbCase;
 	}
 	
-	public int nbCaseNavire(int number) {
-		return number;
-	}
-
 }

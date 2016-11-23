@@ -9,14 +9,20 @@ package tp3;
  */
 public class Position {
 	
-	private String lettre;
+	private char lettre;
 	private int chiffre;
 	private boolean toucher;
 	
-	public String getLettre() {
+	public Position(char lettre, int chiffre, boolean toucher){
+		this.lettre = lettre;
+		this.chiffre = chiffre;
+		this.toucher = toucher;
+	}
+	
+	public char getLettre() {
 		return lettre;
 	}
-	public void setLettre(String lettre) {
+	public void setLettre(char lettre) {
 		this.lettre = lettre;
 	}
 	

@@ -13,11 +13,15 @@ public class Navire {
 
 	String nomDuNavire;
 	int nbCaseNavire;
-	ListeDynamique listePosition = new ListeDynamique();
+	ListeDynamique listePosition;
 
-	public void ajouterNavire(String nomDuNavire, int nbCaseNavire, Position position) {
+	public Navire(String nomDuNavire, int nbCaseNavire){
 		this.nomDuNavire = nomDuNavire;
 		this.nbCaseNavire = nbCaseNavire;
+		listePosition = new ListeDynamique();
+	}
+	
+	public void ajouterNavire(Position position) {
 		listePosition.add(position);
 	}
 
