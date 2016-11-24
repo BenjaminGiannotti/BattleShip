@@ -230,6 +230,7 @@ public class JeuBattleShip extends JFrame {
 				int column = target.getSelectedColumn();
 				char columnHeader = ((String) jTable.getColumnModel().getColumn(column).getHeaderValue()).charAt(0);
 				Position unePosition;
+				unNavire = new Navire("test", 5);
 				
 				if (clickCounter == 0) {
 					//La premiere position du bateau
@@ -241,15 +242,13 @@ public class JeuBattleShip extends JFrame {
 					//Mettre un + dans la case
 					jTable.setValueAt("+", row, column);
 					
+					unNavire.ajouterNavire(premierePosition);
+					
 					//augmenter le click
 					clickCounter++;
 				}else if(clickCounter == 1){
 					//La seconde position du bateau
 					secondPosition = new Position(columnHeader, row + 1, false);
-					
-					unNavire = new Navire("test", 5);
-					unNavire.ajouterNavire(premierePosition);
-					unNavire.ajouterNavire(secondPosition);
 
 					jTable.setValueAt("+", row, column);
 					//Afficher la seconde position du bateau
@@ -260,7 +259,7 @@ public class JeuBattleShip extends JFrame {
 						for (int i = 0; i < 3; i++) {
 							if(premierePosition.getChiffre() < secondPosition.getChiffre()){
 								unePosition = new Position(premierePosition.getLettre(), premierePosition.getChiffre() + i, false);
-								jTable.setValueAt("+", unePosition.getLettre(), column);	
+								jTable.setValueAt("+", unePosition.getChiffre(), column);	
 							}else{
 								unePosition = new Position(premierePosition.getLettre(), secondPosition.getChiffre() + i, false);
 								jTable.setValueAt("+", unePosition.getChiffre(), column);	
@@ -270,7 +269,7 @@ public class JeuBattleShip extends JFrame {
 						
 					}else if(premierePosition.getChiffre() == secondPosition.getChiffre()){
 						
-						for (int i = 1; i < 3; i++) {
+						for (int i = 0; i < 3; i++) {
 							if(premierePosition.getLettre() < secondPosition.getLettre()){
 								
 								columnHeader = ((String) jTable.getColumnModel().getColumn(column - i).getHeaderValue()).charAt(0);
@@ -281,12 +280,22 @@ public class JeuBattleShip extends JFrame {
 								unePosition = new Position(columnHeader, premierePosition.getChiffre(), false);
 								jTable.setValueAt("+", row, column + i);	
 							}
+							unNavire.ajouterNavire(unePosition);
 						}
 						
 					}else{
 						System.out.println("Votre bateau n'est pas aligner verticalement ou horizontallement");
 					}
-
+					for (int i = 0; i < unNavire.listePosition.getSize(); i++) {
+						try {
+							System.out.println("----------------------------\n"
+									+ unNavire.listePosition.get(i).toString());
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+					}
 					clickCounter--;
 				}
 			}

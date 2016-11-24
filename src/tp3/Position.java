@@ -19,6 +19,11 @@ public class Position {
 		this.toucher = toucher;
 	}
 	
+	public Position(char lettre, int chiffre){
+		this.lettre = lettre;
+		this.chiffre = chiffre;
+	}
+
 	public char getLettre() {
 		return lettre;
 	}
