@@ -6,9 +6,11 @@
 package tp3;
 
 /**
+ * Classe abstrète du joueur humain qui extends les propriétés de AJoueur
  *
- * @author Benjamin
+ * @author Mensur Rasic & Benjamin Giannotti
+ * @version Automne 2016
  */
-public abstract class JoueurHumain extends AJoueur{
-    
+public abstract class JoueurHumain extends AJoueur {
+
 }

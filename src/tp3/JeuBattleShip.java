@@ -1,6 +1,3 @@
-/**
- * 
- */
 package tp3;
 
 import java.awt.BorderLayout;
@@ -28,14 +25,21 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 /**
- * @author mensur
- *
+ * 
+ * Classe Main qui génère tout au niveau du framework. Elle contient les
+ * boutons, les tableaux, le mouseEvent et l'actionListener.
+ * 
+ * @author Mensur Rasic & Benjamin Giannotti
+ * @version Automne 2016
  */
+
 public class JeuBattleShip extends JFrame {
 	private static final String BUTTON_NAVIRE = "BUTTON_NAVIRE";
 	private static final String TABLEAU_JOUEUR = "TABLEAU_JOUEUR";
 
 	/**
+	 * Crée un nouveau frame
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -43,108 +47,13 @@ public class JeuBattleShip extends JFrame {
 		jeuBattleShip.setSize(1200, 700);
 		jeuBattleShip.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jeuBattleShip.setVisible(true);
-		/*
-		 * JFrame jFrame = new JFrame();
-		 * 
-		 * jFrame.setSize(1200, 700); jFrame.setTitle("Battle ship");
-		 * jFrame.setLayout(null); jFrame.setLocationRelativeTo(null);
-		 * jFrame.setResizable(false);
-		 * 
-		 * // Le jPanel pour le jtable de l'adversaire JPanel jPanelTable = new
-		 * JPanel(); jPanelTable.setBounds(400, 70, 450, 200);
-		 * 
-		 * String[] columnNames = { "", "A", "B", "C", "D", "E", "F", "G", "H",
-		 * "I", "J" }; Object[][] data = { { "1", "", "", "", "", "", "", "",
-		 * "", "", "" }, { "2", "", "", "", "", "", "", "", "", "", "" }, { "3",
-		 * "", "", "", "", "", "", "", "", "", "" }, { "4", "", "", "", "", "",
-		 * "", "", "", "", "" }, { "5", "", "", "", "", "", "", "", "", "", ""
-		 * }, { "6", "", "", "", "", "", "", "", "", "", "" }, { "7", "", "",
-		 * "", "", "", "", "", "", "", "" }, { "8", "", "", "", "", "", "", "",
-		 * "", "", "" }, { "9", "", "", "", "", "", "", "", "", "", "" }, {
-		 * "10", "", "", "", "", "", "", "", "", "", "" }, };
-		 * 
-		 * final JTable jTableAdvesaire = new JTable(data, columnNames) { public
-		 * boolean isCellEditable(int row, int column) { return false; } };
-		 * JScrollPane tableContainer = new JScrollPane(jTableAdvesaire);
-		 * jPanelTable.add(tableContainer, BorderLayout.CENTER);
-		 * jFrame.getContentPane().add(jPanelTable);
-		 * 
-		 * JLabel labelAdveersaire = new JLabel(); labelAdveersaire.setText(
-		 * "Grille de l'adversaire"); labelAdveersaire.setBounds(565, 25, 150,
-		 * 25); // labelAdveersaire.setVisible(true);
-		 * jFrame.add(labelAdveersaire);
-		 * 
-		 * JLabel labelMoi = new JLabel(); labelMoi.setText("Ma grille");
-		 * labelMoi.setBounds(600, 300, 150, 25); //
-		 * labelAdveersaire.setVisible(true); jFrame.add(labelMoi);
-		 * 
-		 * JLabel labelCinqDernierTireAdversaire = new JLabel();
-		 * labelCinqDernierTireAdversaire.setText("5 derniers tirs");
-		 * labelCinqDernierTireAdversaire.setBounds(1000, 25, 150, 25);
-		 * jFrame.add(labelCinqDernierTireAdversaire);
-		 * 
-		 * JLabel labelCinqDernierTireMoi = new JLabel();
-		 * labelCinqDernierTireMoi.setText("5 derniers tirs");
-		 * labelCinqDernierTireMoi.setBounds(1000, 300, 150, 25);
-		 * jFrame.add(labelCinqDernierTireMoi); /* // button 1 JeuButton
-		 * btnPlacerPA = new JeuButton();
-		 * jFrame.add(btnPlacerPA.jeuButton("btnPlacerPA", "Placer P-A", 80, 25,
-		 * 150, 25));
-		 * 
-		 * // button 2 JeuButton btnPlacerCroiseur = new JeuButton();
-		 * jFrame.add(btnPlacerCroiseur.jeuButton("btnPlacerCroiseur",
-		 * "Placer Croiseur", 80, 50, 150, 25));
-		 * 
-		 * // button 3 JeuButton btnPlacerContreT = new JeuButton();
-		 * jFrame.add(btnPlacerContreT.jeuButton("btnPlacerContreT",
-		 * "Placer Contre T", 80, 75, 150, 25));
-		 * 
-		 * // button 4 JeuButton btnPlacerSousMarin = new JeuButton();
-		 * jFrame.add(btnPlacerSousMarin.jeuButton("btnPlacerSousMarin",
-		 * "Placer Sous Marin", 80, 100, 150, 25));
-		 * 
-		 * // button 5 JeuButton btnPlacerTorpilleur = new JeuButton();
-		 * jFrame.add(btnPlacerTorpilleur.jeuButton("btnPlacerTorpilleur",
-		 * "Placer Torpilleur", 80, 125, 150, 25));
-		 * 
-		 * // button 6 JeuButton btnAnnuler = new JeuButton();
-		 * jFrame.add(btnAnnuler.jeuButton("btnAnnuler", "Annuler", 80, 150,
-		 * 150, 25));
-		 * 
-		 * // button 7 JeuButton btnAide = new JeuButton();
-		 * jFrame.add(btnAide.jeuButton("btnAide", "Aide", 80, 175, 150, 25));
-		 * 
-		 * // button 8 JeuButton btnRecommencer = new JeuButton();
-		 * jFrame.add(btnRecommencer.jeuButton("btnRecommencer", "Recommencer",
-		 * 80, 200, 150, 25));
-		 *//*
-			 * jFrame.setVisible(true);
-			 * 
-			 * jTableAdvesaire.addMouseListener(new MouseAdapter() { public void
-			 * mouseClicked(MouseEvent e) { if (e.getClickCount() == 1) { JTable
-			 * target = (JTable) e.getSource(); int row =
-			 * target.getSelectedRow(); int column = target.getSelectedColumn();
-			 * String columnHeader = (String)
-			 * jTableAdvesaire.getColumnModel().getColumn(column).getHeaderValue
-			 * ();
-			 * 
-			 * // afficher la position System.out.println("La position est : " +
-			 * columnHeader + " " + (row + 1)); jTableAdvesaire.setValueAt("+",
-			 * row, column); } } });
-			 * 
-			 * 
-			 * /* jTableAdvesaire.addMouseMotionListener(new
-			 * MouseMotionAdapter() { public void mouseMoved(MouseEvent e) { int
-			 * row = jTableAdvesaire.rowAtPoint(e.getPoint());
-			 * 
-			 * int column = jTableAdvesaire.columnAtPoint(e.getPoint());
-			 * 
-			 * 
-			 * 
-			 * } });
-			 */
 	}
 
+	/**
+	 * Constructeur du jeu battleship qui crée tout ce qui est à l'intérieur du
+	 * frame, les grilles de chacun des joueurs, les emplacements, les
+	 * dimentions, le textArea.
+	 */
 	public JeuBattleShip() {
 		super("Battleship");
 
@@ -158,11 +67,13 @@ public class JeuBattleShip extends JFrame {
 		information.setEditable(false);
 		information.setBorder(new EmptyBorder(10, 10, 0, 10));
 
+		// La séparation des deux grilles
 		JSplitPane gameSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, grillePanelAdverssaire, grillePanelJoueur);
 		gameSplit.setResizeWeight(0.5);
 		JSplitPane tireSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT, tireAdversaire, tireJoueur);
 		tireSplit.setResizeWeight(0.5);
 
+		// Les emplacement des panels
 		mainPanel.add(buttonsPanel, BorderLayout.WEST);
 		mainPanel.add(gameSplit, BorderLayout.CENTER);
 		mainPanel.add(tireSplit, BorderLayout.EAST);
@@ -171,9 +82,12 @@ public class JeuBattleShip extends JFrame {
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(mainPanel, BorderLayout.CENTER);
 		pack();
-		// resetState();
 	}
 
+	/**
+	 * 
+	 * @return Le panel des boutons à gauche
+	 */
 	public JPanel buildButtonsPanel() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -187,6 +101,10 @@ public class JeuBattleShip extends JFrame {
 		return panel;
 	}
 
+	/**
+	 * 
+	 * @return Le panel des 5 derniers tirs et son en-tête
+	 */
 	public JPanel buildTirePanel() {
 		JPanel panel = new JPanel();
 		JLabel header = new JLabel("5 derniers tirs : ");
@@ -196,14 +114,20 @@ public class JeuBattleShip extends JFrame {
 		return panel;
 	}
 
+	/**
+	 * Méthode pour la création des deux grilles, mouseAdapter et mouseEvent
+	 * 
+	 * @param headerPanel
+	 *            en-tête de la grille
+	 * @return false si la grille est modifiable
+	 */
 	public JPanel buildGrillePanel(String headerPanel) {
 		JPanel panel = new JPanel();
 		JLabel headerLabel = new JLabel(headerPanel, SwingConstants.CENTER);
-		// panel.setLayout(new GridLayout(2, 1));
 		panel.add(headerLabel);
 
 		Object[] columnNames = { ' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
-		
+
 		Object[][] data = { { "1", "", "", "", "", "", "", "", "", "", "" },
 				{ "2", "", "", "", "", "", "", "", "", "", "" }, { "3", "", "", "", "", "", "", "", "", "", "" },
 				{ "4", "", "", "", "", "", "", "", "", "", "" }, { "5", "", "", "", "", "", "", "", "", "", "" },
@@ -218,12 +142,19 @@ public class JeuBattleShip extends JFrame {
 		};
 		JScrollPane tableContainer = new JScrollPane(jTable);
 		panel.add(tableContainer);
+		/*
+		 * Pour initialiser un mouseAdapter dans les grilles et pour initialiser
+		 * les deux extrémitées des navires.
+		 */
 		jTable.addMouseListener(new MouseAdapter() {
 			int clickCounter = 0;
 			Position premierePosition;
 			Position secondPosition;
 			Navire unNavire;
 
+			/*
+			 * Initialisation du mouseEvent. Ca prend
+			 */
 			public void mouseClicked(MouseEvent e) {
 				JTable target = (JTable) e.getSource();
 				int row = target.getSelectedRow();
@@ -231,70 +162,73 @@ public class JeuBattleShip extends JFrame {
 				char columnHeader = ((String) jTable.getColumnModel().getColumn(column).getHeaderValue()).charAt(0);
 				Position unePosition;
 				unNavire = new Navire("test", 5);
-				
+
 				if (clickCounter == 0) {
-					//La premiere position du bateau
+					// La premiere position du bateau
 					premierePosition = new Position(columnHeader, row + 1, false);
-					
-					//Afficher la premiere position	du bateau
+
+					// Afficher la premiere position du bateau
 					System.out.println("Premiere position : " + premierePosition.toString());
-					
-					//Mettre un + dans la case
+
+					// Mettre un + dans la case
 					jTable.setValueAt("+", row, column);
-					
+
 					unNavire.ajouterNavire(premierePosition);
-					
-					//augmenter le click
+
+					// Augmenter le compteur du click
 					clickCounter++;
-				}else if(clickCounter == 1){
-					//La seconde position du bateau
+				} else if (clickCounter == 1) {
+					// La seconde position du bateau
 					secondPosition = new Position(columnHeader, row + 1, false);
 
 					jTable.setValueAt("+", row, column);
-					//Afficher la seconde position du bateau
+					// Afficher la seconde position du bateau
 					System.out.println("Second position : " + secondPosition.toString());
-					
-					if(premierePosition.getLettre() == secondPosition.getLettre()){
-						
+
+					if (premierePosition.getLettre() == secondPosition.getLettre()) {
+
 						for (int i = 0; i < 3; i++) {
-							if(premierePosition.getChiffre() < secondPosition.getChiffre()){
-								unePosition = new Position(premierePosition.getLettre(), premierePosition.getChiffre() + i, false);
-								jTable.setValueAt("+", unePosition.getChiffre(), column);	
-							}else{
-								unePosition = new Position(premierePosition.getLettre(), secondPosition.getChiffre() + i, false);
-								jTable.setValueAt("+", unePosition.getChiffre(), column);	
+							if (premierePosition.getChiffre() < secondPosition.getChiffre()) {
+								unePosition = new Position(premierePosition.getLettre(),
+										premierePosition.getChiffre() + i, false);
+								jTable.setValueAt("+", unePosition.getChiffre(), column);
+							} else {
+								unePosition = new Position(premierePosition.getLettre(),
+										secondPosition.getChiffre() + i, false);
+								jTable.setValueAt("+", unePosition.getChiffre(), column);
 							}
 							unNavire.ajouterNavire(unePosition);
 						}
-						
-					}else if(premierePosition.getChiffre() == secondPosition.getChiffre()){
-						
+
+					} else if (premierePosition.getChiffre() == secondPosition.getChiffre()) {
+
 						for (int i = 0; i < 3; i++) {
-							if(premierePosition.getLettre() < secondPosition.getLettre()){
-								
-								columnHeader = ((String) jTable.getColumnModel().getColumn(column - i).getHeaderValue()).charAt(0);
+							if (premierePosition.getLettre() < secondPosition.getLettre()) {
+
+								columnHeader = ((String) jTable.getColumnModel().getColumn(column - i).getHeaderValue())
+										.charAt(0);
 								unePosition = new Position(columnHeader, premierePosition.getChiffre(), false);
-								jTable.setValueAt("+", row, column - i);	
-							}else{
-								columnHeader = ((String) jTable.getColumnModel().getColumn(column + i).getHeaderValue()).charAt(0);
+								jTable.setValueAt("+", row, column - i);
+							} else {
+								columnHeader = ((String) jTable.getColumnModel().getColumn(column + i).getHeaderValue())
+										.charAt(0);
 								unePosition = new Position(columnHeader, premierePosition.getChiffre(), false);
-								jTable.setValueAt("+", row, column + i);	
+								jTable.setValueAt("+", row, column + i);
 							}
 							unNavire.ajouterNavire(unePosition);
 						}
-						
-					}else{
+
+					} else {
 						System.out.println("Votre bateau n'est pas aligner verticalement ou horizontallement");
 					}
 					for (int i = 0; i < unNavire.listePosition.getSize(); i++) {
 						try {
-							System.out.println("----------------------------\n"
-									+ unNavire.listePosition.get(i).toString());
+							System.out.println(
+									"----------------------------\n" + unNavire.listePosition.get(i).toString());
 						} catch (Exception e1) {
-							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
-						
+
 					}
 					clickCounter--;
 				}
@@ -303,24 +237,46 @@ public class JeuBattleShip extends JFrame {
 		return panel;
 	}
 
+	/**
+	 * Méthode pour la création des boutons, le nombre de cases que doit avoir
+	 * les navires associés aux boutons et son action
+	 * 
+	 * @param nom
+	 *            du bouton
+	 * @param text
+	 *            écrit sur le bouton
+	 * @param nbCase
+	 *            nombre de cases que le bateau doit avoir
+	 * @return button
+	 */
 	private JButton buildButtonNavireAction(String nom, String text, int nbCase) {
 		JeuButton button = new JeuButton(nom, text, nbCase);
 		button.putClientProperty(BUTTON_NAVIRE, nbCase);
-		button.addActionListener(navireListner);
+		button.addActionListener(navireListener);
 		return button;
 	}
 
-	private final ActionListener navireListner = new ActionListener() {
+	/**
+	 * Action de chaque boutons lorsqu'ils sont cliqués
+	 */
+	private final ActionListener navireListener = new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			JComponent source = (JComponent) e.getSource();
 			Integer code = (Integer) source.getClientProperty(BUTTON_NAVIRE);
-			
-			//source.setEnabled(false);
-			
+
+			// source.setEnabled(false);
+
 			operatorButtonPressed(code);
 		}
 	};
 
+	/**
+	 * Affichage du nombre de case que le navire doit avoir lorsque son bouton
+	 * est cliqué
+	 * 
+	 * @param nbCase
+	 *            du navire
+	 */
 	public void operatorButtonPressed(int nbCase) {
 		System.out.println("Nombre de case de ce navire : " + nbCase);
 	}

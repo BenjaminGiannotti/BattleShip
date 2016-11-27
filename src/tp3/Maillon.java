@@ -1,53 +1,62 @@
-/**
- * 
- */
 package tp3;
 
 /**
- * @author mensur
- *
+ * Classe pour la création d'un maillon avec ses get et set
+ * 
+ * @author Mensur Rasic & Benjamin Giannotti
+ * @version Automne 2016
  */
 public class Maillon {
 
-    //ATTRIBUTS
+	// ATTRIBUTS
 	private Position unePosition;
-    private Maillon next;
+	private Maillon next;
 
-    /**
-     * Constructeur
-     *
-     * @param valeur
-     */
-    public Maillon(Position p) {
-    	this.unePosition = p;
-    }
-    
+	/**
+	 * Constructeur Maillon
+	 * 
+	 * @param p
+	 *            position
+	 */
+	public Maillon(Position p) {
+		this.unePosition = p;
+	}
+
+	/**
+	 * 
+	 * @return unePosition
+	 */
 	public Position getUnePosition() {
 		return unePosition;
 	}
 
+	/**
+	 * 
+	 * @param unePosition
+	 */
 	public void setUnePosition(Position unePosition) {
 		this.unePosition = unePosition;
 	}
 
 	/**
-     *
-     * @return
-     */
-    public Maillon getNext() {
-        return next;
-    }
+	 *
+	 * @return next
+	 */
+	public Maillon getNext() {
+		return next;
+	}
 
-    /**
-     *
-     * @param next
-     */
-    public void setNext(Maillon next) {
-        this.next = next;
-    }
-    
-    public String toString(){
-    	return unePosition.toString();
-    }
+	/**
+	 *
+	 * @param next
+	 *            maillon
+	 */
+	public void setNext(Maillon next) {
+		this.next = next;
+	}
+
+	public String toString() {
+		return unePosition.toString();
+	}
 
 }
